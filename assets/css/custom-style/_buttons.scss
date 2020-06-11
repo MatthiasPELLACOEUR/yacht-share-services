@@ -66,6 +66,12 @@
   }
 }
 
+.btn--border {
+  border-radius: 0px;
+  border: 2px solid black;
+  box-shadow: 3px 3px black;
+}
+
 // feedback
 .btn--disabled {
   opacity: 0.6;
@@ -82,3 +88,4 @@
 // (END) Global Editor Code
 
 // --------------------------------
+

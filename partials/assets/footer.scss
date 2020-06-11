@@ -1,0 +1,107 @@
+/* -------------------------------- 
+
+File#: _1_main-footer
+Title: Main Footer
+Descr: Footer navigation
+Usage: codyhouse.co/license
+
+-------------------------------- */
+
+.main-footer {
+    position: relative;
+    z-index: 1;
+    background: rgb(0, 89, 255);
+    padding-bottom: 2%;
+  }
+  
+  .main-footer__logo {
+    flex-shrink: 0;
+    width: 104px; // logo width
+    height: 30px; // logo height
+    display: block;
+  
+    svg, img {
+      display: block;
+      width: inherit;
+      height: inherit;
+    }
+  }
+  
+  .main-footer__item {
+    margin-top: var(--space-xs);
+  }
+  
+  .main-footer__legend {
+    font-size: 0.8em;
+  }
+
+  .main-footer__link {
+    color: var(--color-contrast-medium);
+    text-decoration: none;
+    color: white;
+    font-size: 0.7em;
+    &:hover {
+      color: var(--color-contrast-high);
+    }
+  }
+  
+  // colophon
+  .main-footer__colophon {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  .main-footer__social {
+    text-decoration: none;
+    display: inline-block;
+    color: var(--color-contrast-medium);
+  
+    &:hover {
+      color: var(--color-contrast-high);
+    }
+  }
+  
+  @include breakpoint(md) {
+    .main-footer__item {
+      font-size: 0.9em;
+    }
+  }
+
+  /* -------------------------------- 
+
+File#: _1_social-sharing
+Title: Social Sharing
+Descr: Social sharing plugin
+Usage: codyhouse.co/license
+
+-------------------------------- */
+
+// .sharebar {
+//   text-align: center;
+// }
+
+.sharebar__btn {
+  display: inline-block;
+  padding: 10px;
+  margin-left: 10px;
+  background: var(--color-contrast-lower);
+  border-radius: 50%;
+  transition: .2s;
+
+  .icon {
+    display: block;
+    color: var(--color-contrast-high);
+    transition: color .2s;
+    font-size: 1.2em;
+  }
+
+  &:hover {
+    background-color: var(--color-bg);
+    box-shadow: var(--shadow-sm);
+
+    .icon {
+      color: var(--color-primary);
+    }
+  }
+}
