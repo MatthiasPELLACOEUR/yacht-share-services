@@ -3,11 +3,11 @@
 require './partials/header.php';
 
 ?>
-<body>
+<body class="cont cont--index">
     <?php
-        require './partials/nav.php';
+        require './partials/nav-notconnected.php';
     ?>
-    <main class="container">
+    <main class="container-fluid">
         <h1>Welcome on board</h1>
 
         <div class="newsletter margin-bottom-xl text-center">

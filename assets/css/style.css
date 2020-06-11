@@ -8101,7 +8101,7 @@ h1 {
   color: white;
 }
 
-h3, h4, p {
+footer h3, footer h4, footer p, main h3, main h4, main p {
   color: white;
   margin-bottom: 2%;
 }
@@ -8110,6 +8110,17 @@ h3, h4, p {
   background-color: darkorange;
   padding: 2%;
   color: black;
+}
+
+.cont--index {
+  background: top/contain no-repeat url("../img/Port-leucate-Bateaux-dans-le-port.jpeg");
+  background-size: cover;
+}
+
+.test {
+  height: 700px;
+  background: bottom/contain no-repeat url("../img/map.png");
+  background-size: cover;
 }
 
 /* -------------------------------- 
@@ -8190,6 +8201,238 @@ Usage: codyhouse.co/license
 
 .newsletter__small a {
   color: var(--color-contrast-high);
+}
+
+/* -------------------------------- 
+
+File#: _1_modal-window
+Title: Modal Window
+Descr: A modal dialog used to display critical information
+Usage: codyhouse.co/license
+
+-------------------------------- */
+.modal {
+  position: fixed;
+  z-index: var(--zindex-overlay);
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.modal:not(.modal--is-visible) {
+  pointer-events: none;
+  background-color: transparent;
+}
+
+.modal--is-visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal__content {
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  max-height: 100%;
+}
+
+.modal__close-btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  border-radius: 50%;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+.modal__close-btn .icon {
+  display: block;
+  margin: auto;
+}
+
+.modal__close-btn--outer {
+  width: 3.2em;
+  height: 3.2em;
+  position: fixed;
+  top: var(--space-sm);
+  right: var(--space-sm);
+  z-index: var(--zindex-fixed-element);
+  background-color: hsla(var(--color-contrast-higher-h), var(--color-contrast-higher-s), var(--color-contrast-higher-l), 0.8);
+}
+
+.modal__close-btn--outer:hover {
+  background-color: var(--color-contrast-higher);
+}
+
+.modal__close-btn--outer .icon {
+  color: var(--color-bg);
+}
+
+.modal__close-btn--inner {
+  width: 2em;
+  height: 2em;
+  background-color: var(--color-bg);
+  -webkit-box-shadow: var(--shadow-sm);
+          box-shadow: var(--shadow-sm);
+}
+
+.modal__close-btn--inner .icon {
+  color: inherit;
+}
+
+.modal__close-btn--inner:hover {
+  -webkit-box-shadow: var(--shadow-md);
+          box-shadow: var(--shadow-md);
+}
+
+:root {
+  --modal-transition-duration: 0.2s;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .modal--animate-fade {
+    --modal-transition-duration: 0.2s;
+    -webkit-transition: opacity var(--modal-transition-duration), background-color var(--modal-transition-duration), visibility 0s var(--modal-transition-duration);
+    transition: opacity var(--modal-transition-duration), background-color var(--modal-transition-duration), visibility 0s var(--modal-transition-duration);
+  }
+  .modal--animate-fade.modal--is-visible {
+    -webkit-transition: opacity var(--modal-transition-duration), background-color var(--modal-transition-duration), visibility 0s;
+    transition: opacity var(--modal-transition-duration), background-color var(--modal-transition-duration), visibility 0s;
+  }
+  .modal--animate-scale,
+  .modal--animate-translate-up,
+  .modal--animate-translate-down,
+  .modal--animate-translate-right,
+  .modal--animate-translate-left {
+    --modal-transition-duration: 0.2s;
+    -webkit-transition: opacity var(--modal-transition-duration), visibility 0s var(--modal-transition-duration);
+    transition: opacity var(--modal-transition-duration), visibility 0s var(--modal-transition-duration);
+  }
+  .modal--animate-scale .modal__content,
+  .modal--animate-translate-up .modal__content,
+  .modal--animate-translate-down .modal__content,
+  .modal--animate-translate-right .modal__content,
+  .modal--animate-translate-left .modal__content {
+    will-change: transform;
+    -webkit-transition: -webkit-transform var(--modal-transition-duration) var(--ease-out);
+    transition: -webkit-transform var(--modal-transition-duration) var(--ease-out);
+    transition: transform var(--modal-transition-duration) var(--ease-out);
+    transition: transform var(--modal-transition-duration) var(--ease-out), -webkit-transform var(--modal-transition-duration) var(--ease-out);
+  }
+  .modal--animate-scale.modal--is-visible,
+  .modal--animate-translate-up.modal--is-visible,
+  .modal--animate-translate-down.modal--is-visible,
+  .modal--animate-translate-right.modal--is-visible,
+  .modal--animate-translate-left.modal--is-visible {
+    -webkit-transition: opacity var(--modal-transition-duration), visibility 0s;
+    transition: opacity var(--modal-transition-duration), visibility 0s;
+  }
+  .modal--animate-scale.modal--is-visible .modal__content,
+  .modal--animate-translate-up.modal--is-visible .modal__content,
+  .modal--animate-translate-down.modal--is-visible .modal__content,
+  .modal--animate-translate-right.modal--is-visible .modal__content,
+  .modal--animate-translate-left.modal--is-visible .modal__content {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  .modal--animate-slide-up,
+  .modal--animate-slide-down,
+  .modal--animate-slide-right,
+  .modal--animate-slide-left {
+    --modal-transition-duration: 0.3s;
+    -webkit-transition: opacity 0s var(--modal-transition-duration), background-color var(--modal-transition-duration), visibility 0s var(--modal-transition-duration);
+    transition: opacity 0s var(--modal-transition-duration), background-color var(--modal-transition-duration), visibility 0s var(--modal-transition-duration);
+  }
+  .modal--animate-slide-up .modal__content,
+  .modal--animate-slide-down .modal__content,
+  .modal--animate-slide-right .modal__content,
+  .modal--animate-slide-left .modal__content {
+    will-change: transform;
+    -webkit-transition: -webkit-transform var(--modal-transition-duration) var(--ease-out);
+    transition: -webkit-transform var(--modal-transition-duration) var(--ease-out);
+    transition: transform var(--modal-transition-duration) var(--ease-out);
+    transition: transform var(--modal-transition-duration) var(--ease-out), -webkit-transform var(--modal-transition-duration) var(--ease-out);
+  }
+  .modal--animate-slide-up.modal--is-visible,
+  .modal--animate-slide-down.modal--is-visible,
+  .modal--animate-slide-right.modal--is-visible,
+  .modal--animate-slide-left.modal--is-visible {
+    -webkit-transition: background-color var(--modal-transition-duration), visibility 0s;
+    transition: background-color var(--modal-transition-duration), visibility 0s;
+  }
+  .modal--animate-slide-up.modal--is-visible .modal__content,
+  .modal--animate-slide-down.modal--is-visible .modal__content,
+  .modal--animate-slide-right.modal--is-visible .modal__content,
+  .modal--animate-slide-left.modal--is-visible .modal__content {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  .modal--animate-scale .modal__content {
+    -webkit-transform: scale(0.95);
+            transform: scale(0.95);
+  }
+  .modal--animate-translate-up .modal__content {
+    -webkit-transform: translateY(40px);
+            transform: translateY(40px);
+  }
+  .modal--animate-translate-down .modal__content {
+    -webkit-transform: translateY(-40px);
+            transform: translateY(-40px);
+  }
+  .modal--animate-translate-right .modal__content {
+    -webkit-transform: translateX(-40px);
+            transform: translateX(-40px);
+  }
+  .modal--animate-translate-left .modal__content {
+    -webkit-transform: translateX(40px);
+            transform: translateX(40px);
+  }
+  .modal--animate-slide-up .modal__content {
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%);
+  }
+  .modal--animate-slide-down .modal__content {
+    -webkit-transform: translateY(-100%);
+            transform: translateY(-100%);
+  }
+  .modal--animate-slide-right .modal__content {
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+  }
+  .modal--animate-slide-left .modal__content {
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+  }
+}
+
+.modal--is-loading .modal__content {
+  visibility: hidden;
+}
+
+.modal--is-loading .modal__loader {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.modal__loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: none;
+  pointer-events: none;
 }
 
 /* -------------------------------- 
@@ -8459,6 +8702,199 @@ html:not(.js) .f-header__nav {
   opacity: 1;
   -webkit-transform: translateY(0);
           transform: translateY(0);
+}
+
+/* -------------------------------- 
+
+File#: _2_dropdown
+Title: Dropdown
+Descr: A hoverable link that toggles the visibility of a dropdown list
+Usage: codyhouse.co/license
+
+-------------------------------- */
+:root {
+  --dropdown-item-padding: var(--space-xxs) var(--space-sm);
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown__menu {
+  width: 200px;
+  border-radius: var(--radius-md);
+  padding: var(--space-xxs) 0;
+  background-color: var(--color-bg);
+  -webkit-box-shadow: var(--shadow-sm);
+          box-shadow: var(--shadow-sm);
+  z-index: var(--zindex-popover);
+  position: absolute;
+  left: 0;
+  top: 100%;
+  --space-unit:  1rem;
+  --space-xxxxs: calc(0.125 * 1rem);
+  --space-xxxs:  calc(0.25 * 1rem);
+  --space-xxs:   calc(0.375 * 1rem);
+  --space-xs:    calc(0.5 * 1rem);
+  --space-sm:    calc(0.75 * 1rem);
+  --space-md:    calc(1.25 * 1rem);
+  --space-lg:    calc(2 * 1rem);
+  --space-xl:    calc(3.25 * 1rem);
+  --space-xxl:   calc(5.25 * 1rem);
+  --space-xxxl:  calc(8.5 * 1rem);
+  --space-xxxxl: calc(13.75 * 1rem);
+  --component-padding: var(--space-md);
+  --text-xs: calc((1rem / 1.2) / 1.2);
+  --text-sm: calc(var(--text-xs) * 1.2);
+  --text-md: calc(var(--text-sm) * 1.2 * 1.2);
+  --text-lg: calc(var(--text-md) * 1.2);
+  --text-xl: calc(var(--text-lg) * 1.2);
+  --text-xxl: calc(var(--text-xl) * 1.2);
+  --text-xxxl: calc(var(--text-xxl) * 1.2);
+  --text-xxxxl: calc(var(--text-xxxl) * 1.2);
+  font-size: 1rem;
+  clip: rect(1px, 1px, 1px, 1px);
+  -webkit-clip-path: inset(50%);
+          clip-path: inset(50%);
+}
+
+.dropdown__wrapper:hover > .dropdown__menu,
+.dropdown__sub-wrapper:hover > .dropdown__menu {
+  clip: auto;
+  -webkit-clip-path: none;
+          clip-path: none;
+}
+
+.dropdown__sub-wrapper:hover > .dropdown__menu {
+  left: 100%;
+}
+
+.dropdown__item {
+  display: block;
+  text-decoration: none;
+  color: var(--color-contrast-high);
+  padding: var(--dropdown-item-padding);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.dropdown__item:hover, .dropdown__item.dropdown__item--hover {
+  background-color: var(--color-contrast-lower);
+}
+
+.dropdown__separator {
+  height: 1px;
+  background-color: var(--color-contrast-low);
+  margin: var(--dropdown-item-padding);
+}
+
+.dropdown__sub-wrapper {
+  position: relative;
+}
+
+.dropdown__sub-wrapper > .dropdown__item {
+  position: relative;
+  padding-right: calc(var(--space-sm) + 12px);
+}
+
+.dropdown__sub-wrapper > .dropdown__item .icon {
+  position: absolute;
+  display: block;
+  width: 12px;
+  height: 12px;
+  right: var(--space-xxs);
+  top: calc(50% - 6px);
+}
+
+.dropdown__sub-wrapper > .dropdown__menu {
+  top: calc(var(--space-xxs) * -1);
+  -webkit-box-shadow: var(--shadow-md);
+          box-shadow: var(--shadow-md);
+}
+
+.js .dropdown__menu {
+  top: calc(100% + 4px);
+}
+
+.js .dropdown__sub-wrapper .dropdown__menu {
+  top: calc(var(--space-xxs) * -1);
+}
+
+.js .dropdown__menu--is-visible {
+  clip: auto;
+  -webkit-clip-path: none;
+          clip-path: none;
+  -webkit-animation: dropdown-show 0.2s forwards;
+          animation: dropdown-show 0.2s forwards;
+}
+
+.js .dropdown__menu--is-hidden {
+  -webkit-animation: dropdown-hide 0.2s;
+          animation: dropdown-hide 0.2s;
+}
+
+.js .dropdown__sub-wrapper > .dropdown__menu--is-visible,
+.js .dropdown__sub-wrapper > .dropdown__menu--is-hidden {
+  left: 100%;
+}
+
+.js .dropdown__sub-wrapper > .dropdown__menu--is-visible.dropdown__menu--left,
+.js .dropdown__sub-wrapper > .dropdown__menu--is-hidden.dropdown__menu--left {
+  left: -100%;
+}
+
+@-webkit-keyframes dropdown-show {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes dropdown-show {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes dropdown-hide {
+  0% {
+    clip: auto;
+    -webkit-clip-path: none;
+            clip-path: none;
+    opacity: 1;
+  }
+  100% {
+    clip: auto;
+    -webkit-clip-path: none;
+            clip-path: none;
+    opacity: 0;
+  }
+}
+
+@keyframes dropdown-hide {
+  0% {
+    clip: auto;
+    -webkit-clip-path: none;
+            clip-path: none;
+    opacity: 1;
+  }
+  100% {
+    clip: auto;
+    -webkit-clip-path: none;
+            clip-path: none;
+    opacity: 0;
+  }
+}
+
+.nav-connected {
+  margin-left: 10%;
 }
 
 /* -------------------------------- 
